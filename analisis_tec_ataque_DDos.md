@@ -1,3 +1,50 @@
+# Análisis Técnico - Protección contra Ataques DDoS
+
+> **Descripción**: Este documento analiza el sistema de protección DDoS implementado en la API NestJS del proyecto. Contiene respuestas a preguntas técnicas sobre el comportamiento del sistema y propuestas de mejora para entornos de producción.
+
+---
+
+## 📚 Índice
+
+### Análisis técnico
+- [Pregunta 1: ¿Cuándo empezó a bloquear?](#pregunta-1-cuándo-empezó-a-bloquear)
+- [Pregunta 2: ¿Qué pasa si aumentan el límite?](#pregunta-2-qué-pasa-si-aumentan-el-límite)
+- [Pregunta 3: ¿Qué pasaría en producción?](#pregunta-3-qué-harían-en-producción)
+
+### Propuestas de mejora
+- [1. CAPTCHA después de N intentos fallidos](#1-captcha-después-de-n-intentos-fallidos)
+- [2. WAF (Web Application Firewall)](#2-waf-web-application-firewall)
+- [3. CDN con caché](#3-cdn-con-caché)
+- [4. Circuit Breaker Pattern](#4-circuit-breaker-pattern)
+- [5. Colas (Message Queues)](#5-colas-message-queues)
+- [6. IP Geoblocking + Threat Intelligence](#6-ip-geoblocking--threat-intelligence)
+
+### Recomendaciones
+- [Recomendación final](#recomendación-final)
+
+---
+
+## Preguntas respondidas:
+
+**1. ¿Cuándo empieza a bloquear?**
+- Tras el 3er intento fallido (1 min), 5to (5 min), 7mo (1 hora)
+
+**2. ¿Qué pasa si aumentan el límite?**
+- Explica el efecto de cambiar `limit` en throttling
+
+**3. ¿Qué pasaría en producción?**
+- Lista problemas: memoria volátil, un solo servidor, IP spoofing
+
+**Propuestas de mejora** (solo propuestas, no implementadas):
+- CAPTCHA después de intentos fallidos
+- WAF (Cloudflare, AWS Shield)
+- CDN con caché
+- Circuit Breaker Pattern
+- Colas (RabbitMQ, Kafka)
+- IP Geoblocking + Threat Intelligence
+
+---
+
 # Parte 4 - Análisis
 
 ## Pregunta 1: ¿Cuándo empezó a bloquear?
@@ -132,7 +179,7 @@ private readonly BLOCK_THRESHOLDS = [
 
 **Pros**:
 - Detiene ataques automatizados
--用户体验 relativamente buena
+_relativamente buena
 - Ampliamente adoptado
 
 **Contras**:
@@ -250,4 +297,9 @@ Para este proyecto académico, la mejor combinación sería:
 
 ---
 
-*Documento generado para el proyecto de защита DDoS - Universidad*
+*Documento creado para el proyecto de Laboratorio de DDoS -*
+*Última actualización: Mayo 2026*
+*Guía diseñada para uso académico y de investigación*
+*Autor: Burdiles Ricardo Adrián. Estudiante de ITS Cipolletti.
+*Materia: Prácticas III 3° año
+*Profesor: Aqueveque Roberto
